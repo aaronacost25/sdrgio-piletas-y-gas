@@ -474,22 +474,13 @@ em {
   gap: 1rem;
 }
 
-.galeria__item {
+.galeria__img {
+  width: 100%;
   aspect-ratio: 4 / 3;
-  display: grid;
-  place-items: center;
-  background: repeating-linear-gradient(
-    45deg,
-    var(--fondo-claro),
-    var(--fondo-claro) 12px,
-    #eef6fb 12px,
-    #eef6fb 24px
-  );
-  border: 2px dashed var(--borde);
+  object-fit: cover;
   border-radius: var(--radio);
-  color: var(--texto-suave);
-  font-weight: 600;
-  font-size: 0.9rem;
+  display: block;
+  box-shadow: var(--sombra);
 }
 
 /* ─────────── FOOTER ─────────── */
