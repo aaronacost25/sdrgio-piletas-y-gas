@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="170" viewBox="0 0 400 170">
+  <rect width="400" height="170" fill="#dbeafe"/>
+  <g fill="#3b82f6">
+    <ellipse cx="200" cy="72" rx="34" ry="48"/>
+    <rect x="186" y="16" width="28" height="10" rx="3"/>
+    <rect x="168" y="120" width="64" height="14" rx="4"/>
+  </g>
+  <text x="400" y="160" text-anchor="end" font-family="Arial" font-size="13" fill="#1e40af" opacity="0.8">Gas en garrafa</text>
+</svg>

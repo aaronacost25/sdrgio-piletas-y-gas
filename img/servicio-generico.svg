@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="170" viewBox="0 0 400 170">
+  <rect width="400" height="170" fill="#d1fae5"/>
+  <g fill="#059669">
+    <rect x="150" y="50" width="100" height="46" rx="22"/>
+    <rect x="185" y="18" width="30" height="36" rx="3"/>
+    <path d="M120 88 h60 M220 88 h60 M120 60 h30" stroke="#059669" stroke-width="5" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="400" y="160" text-anchor="end" font-family="Arial" font-size="13" fill="#065f46" opacity="0.8">Mantenimiento de pileta</text>
+</svg>
