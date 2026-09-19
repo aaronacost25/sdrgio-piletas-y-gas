@@ -49,56 +49,56 @@ const PRODUCTOS = [
   // ---------- PRODUCTOS PARA MANTENIMIENTO DE PILETAS ----------
   {
     nombre: "Cloro granulado / tabletas",
-    categoria: "productos",
+    categoria: "pileta",
     descripcion: "Desinfectante esencial para mantener el agua libre de bacterias y algas.",
     etiqueta: "",
     imagen: "img/pileta-mto-4.jpg"
   },
   {
     nombre: "Alguicida",
-    categoria: "productos",
+    categoria: "pileta",
     descripcion: "Previene y elimina algas verdes, negras y mostaza en la pileta.",
     etiqueta: "",
     imagen: "img/pileta-mto-3.jpg"
   },
   {
     nombre: "Clarificador / Floculante",
-    categoria: "productos",
+    categoria: "pileta",
     descripcion: "Agrupa partículas finas para que el filtro las retenga y el agua quede cristalina.",
     etiqueta: "",
     imagen: "img/pileta-mto-2.jpg"
   },
   {
     nombre: "Elevador y reductora de pH",
-    categoria: "productos",
+    categoria: "pileta",
     descripcion: "Para ajustar el pH entre 7.2 y 7.6 y que el cloro actúe correctamente.",
     etiqueta: "",
     imagen: "img/pileta-mto-1.jpg"
   },
   {
     nombre: "Kit de test (tiras / gotero)",
-    categoria: "productos",
+    categoria: "pileta",
     descripcion: "Medí cloro, pH y alcalinidad en minutos. Fácil de usar.",
     etiqueta: "",
     imagen: ""
   },
   {
     nombre: "Boyas dosificadoras",
-    categoria: "productos",
+    categoria: "pileta",
     descripcion: "Liberan cloro de forma gradual. Ideales para piletas sin dosificador automático.",
     etiqueta: "",
     imagen: ""
   },
   {
     nombre: "Cepillos, barrefondos y redes",
-    categoria: "productos",
+    categoria: "pileta",
     descripcion: "Accesorios de limpieza manual: cepillo de paredes, barrefondo y red recogehojas.",
     etiqueta: "",
     imagen: ""
   },
   {
     nombre: "Equipos de filtrado y bombas",
-    categoria: "productos",
+    categoria: "pileta",
     descripcion: "Filtros de arena, cartucho y bombas centrifugas. Entrega e instalación disponible.",
     etiqueta: "",
     imagen: ""
