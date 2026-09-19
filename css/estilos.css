@@ -383,6 +383,38 @@ em {
   gap: 1.2rem;
 }
 
+.catalogo__grupo-titulo {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--marino);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--borde);
+}
+
+.catalogo__grupo-titulo::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.catalogo__grupo-titulo--productos::before {
+  background: var(--ambar);
+}
+
+.catalogo__grupo-titulo--servicios::before {
+  background: var(--cian);
+}
+
+.catalogo__grupo-titulo--servicios {
+  margin-top: 1rem;
+}
+
 .tarjeta {
   position: relative;
   background: #fff;
