@@ -21,7 +21,7 @@ const PRODUCTOS = [
     nombre: "Garrafa de gas 10 kg",
     categoria: "productos",
     descripcion: "Garrafa cargada de 10 kg de gas licuado, ideal para cocina y uso hogareño.",
-    etiqueta: "Mas pedido",
+    etiqueta: "",
     imagen: "img/garrafa-10.jpg"
   },
   {
@@ -42,7 +42,7 @@ const PRODUCTOS = [
     nombre: "Accesorios y repuestos",
     categoria: "productos",
     descripcion: "Picos, mangueras, reguladores y abrazaderas para tu instalacion de gas.",
-    etiqueta: "Nuevo",
+    etiqueta: "",
     imagen: ""
   },
 
@@ -58,7 +58,7 @@ const PRODUCTOS = [
     nombre: "Puesta en marcha de temporada",
     categoria: "servicios",
     descripcion: "Preparamos tu pileta para el verano: filtrado, cloro y equilibrio quimico completo.",
-    etiqueta: "Mas pedido",
+    etiqueta: "",
     imagen: "img/pileta-mto-2.jpg"
   },
   {
