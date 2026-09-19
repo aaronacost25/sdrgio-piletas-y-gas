@@ -12,8 +12,10 @@
 :root {
   --marino: #0b1f33;        /* color principal (navy) */
   --azul: #123c5c;
-  --cian: #38bdf8;          /* acento */
+  --cian: #38bdf8;          /* acento agua/piletas */
   --cian-suave: #e0f2fe;
+  --ambar: #d97706;         /* acento gas/entrega */
+  --ambar-suave: #fdecd2;
   --verde-whatsapp: #25d366;
   --fondo: #ffffff;
   --fondo-claro: #f4f8fb;
@@ -22,6 +24,7 @@
   --borde: #e2ecf3;
   --sombra: 0 6px 24px rgba(11, 31, 51, 0.08);
   --radio: 16px;
+  --radio-tarjeta: 10px;
 }
 
 html {
@@ -192,8 +195,17 @@ em {
   margin-bottom: 1.2rem;
 }
 
-.hero__titulo em {
+.hero__titulo-agua,
+.hero__titulo-gas {
+  display: block;
+}
+
+.hero__titulo-agua {
   color: #7dd3fc;
+}
+
+.hero__titulo-gas {
+  color: #fcd34d;
 }
 
 .hero__titulo-segunda {
@@ -288,7 +300,7 @@ em {
 .servicio {
   background: #fff;
   border: 1px solid var(--borde);
-  border-radius: var(--radio);
+  border-radius: var(--radio-tarjeta);
   padding: 1.7rem 1.6rem;
   box-shadow: var(--sombra);
   transition: transform 0.2s, box-shadow 0.2s;
@@ -308,6 +320,10 @@ em {
   background: var(--cian-suave);
   border-radius: 14px;
   margin-bottom: 1.1rem;
+}
+
+.servicio--gas .servicio__icono {
+  background: var(--ambar-suave);
 }
 
 .servicio__titulo {
@@ -339,7 +355,7 @@ em {
   font-weight: 700;
   font-family: inherit;
   font-size: 0.92rem;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .filtro:hover {
@@ -352,6 +368,15 @@ em {
   border-color: var(--marino);
 }
 
+.filtro[data-filtro="productos"]:hover {
+  border-color: var(--ambar);
+}
+
+.filtro[data-filtro="productos"].filtro--activo {
+  background: var(--ambar);
+  border-color: var(--ambar);
+}
+
 .catalogo {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -361,7 +386,7 @@ em {
 .tarjeta {
   position: relative;
   background: #fff;
-  border-radius: var(--radio);
+  border-radius: var(--radio-tarjeta);
   overflow: hidden;
   box-shadow: var(--sombra);
   border: 1px solid var(--borde);
@@ -378,9 +403,20 @@ em {
 .tarjeta__img {
   width: 100%;
   height: 190px;
-  object-fit: contain;
+  display: block;
   background: var(--fondo-claro);
+}
+
+/* Productos (gas): la garrafa se ve completa, flotando sobre fondo claro */
+.tarjeta[data-categoria="productos"] .tarjeta__img {
+  object-fit: contain;
   padding: 0.6rem;
+}
+
+/* Servicios (piletas): foto de trabajo a sangre, sin recorte artificial */
+.tarjeta[data-categoria="servicios"] .tarjeta__img {
+  object-fit: cover;
+  padding: 0;
 }
 
 .tarjeta__cuerpo {
@@ -409,6 +445,11 @@ em {
   padding: 0.28rem 0.75rem;
   border-radius: 999px;
   box-shadow: var(--sombra);
+}
+
+.tarjeta[data-categoria="productos"] .tarjeta__etiqueta {
+  background: var(--ambar);
+  color: #fff;
 }
 
 .catalogo__vacio {
@@ -481,7 +522,7 @@ em {
   object-fit: contain;
   background: var(--fondo-claro);
   padding: 0.5rem;
-  border-radius: var(--radio);
+  border-radius: var(--radio-tarjeta);
   display: block;
   box-shadow: var(--sombra);
 }
