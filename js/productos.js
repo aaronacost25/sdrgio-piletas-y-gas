@@ -50,7 +50,7 @@ const PRODUCTOS = [
   {
     nombre: "Mantenimiento general de pileta",
     categoria: "servicios",
-    descripcion: "Limpeza, aspirado y balance del agua para que tu pileta este siempre lista para usar.",
+    descripcion: "Limpieza, aspirado y balance del agua para que tu pileta este siempre lista para usar.",
     etiqueta: "",
     imagen: "img/pileta-mto-1.jpg"
   },
