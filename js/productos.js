@@ -21,7 +21,7 @@ const PRODUCTOS = [
     nombre: "Garrafa de gas 10 kg",
     categoria: "productos",
     descripcion: "Garrafa cargada de 10 kg de gas licuado, ideal para cocina y uso hogareño.",
-    etiqueta: "",
+    etiqueta: "Mas pedido",
     imagen: "img/garrafa-10.jpg"
   },
   {
@@ -42,107 +42,49 @@ const PRODUCTOS = [
     nombre: "Accesorios y repuestos",
     categoria: "productos",
     descripcion: "Picos, mangueras, reguladores y abrazaderas para tu instalacion de gas.",
-    etiqueta: "",
-    imagen: ""
-  },
-
-  // ---------- PRODUCTOS PARA MANTENIMIENTO DE PILETAS ----------
-  {
-    nombre: "Cloro granulado / tabletas",
-    categoria: "pileta",
-    descripcion: "Desinfectante esencial para mantener el agua libre de bacterias y algas.",
-    etiqueta: "",
-    imagen: "img/pileta-mto-4.jpg"
-  },
-  {
-    nombre: "Alguicida",
-    categoria: "pileta",
-    descripcion: "Previene y elimina algas verdes, negras y mostaza en la pileta.",
-    etiqueta: "",
-    imagen: "img/pileta-mto-3.jpg"
-  },
-  {
-    nombre: "Clarificador / Floculante",
-    categoria: "pileta",
-    descripcion: "Agrupa partículas finas para que el filtro las retenga y el agua quede cristalina.",
-    etiqueta: "",
-    imagen: "img/pileta-mto-2.jpg"
-  },
-  {
-    nombre: "Elevador y reductora de pH",
-    categoria: "pileta",
-    descripcion: "Para ajustar el pH entre 7.2 y 7.6 y que el cloro actúe correctamente.",
-    etiqueta: "",
-    imagen: "img/pileta-mto-1.jpg"
-  },
-  {
-    nombre: "Kit de test (tiras / gotero)",
-    categoria: "pileta",
-    descripcion: "Medí cloro, pH y alcalinidad en minutos. Fácil de usar.",
-    etiqueta: "",
-    imagen: ""
-  },
-  {
-    nombre: "Boyas dosificadoras",
-    categoria: "pileta",
-    descripcion: "Liberan cloro de forma gradual. Ideales para piletas sin dosificador automático.",
-    etiqueta: "",
-    imagen: ""
-  },
-  {
-    nombre: "Cepillos, barrefondos y redes",
-    categoria: "pileta",
-    descripcion: "Accesorios de limpieza manual: cepillo de paredes, barrefondo y red recogehojas.",
-    etiqueta: "",
-    imagen: ""
-  },
-  {
-    nombre: "Equipos de filtrado y bombas",
-    categoria: "pileta",
-    descripcion: "Filtros de arena, cartucho y bombas centrifugas. Entrega e instalación disponible.",
-    etiqueta: "",
+    etiqueta: "Nuevo",
     imagen: ""
   },
 
   // ---------- SERVICIOS (MANTENIMIENTO DE PILETAS) ----------
   {
     nombre: "Mantenimiento general de pileta",
-    categoria: "servicios",
+    categoria: "pileta",
     descripcion: "Limpieza, aspirado y balance del agua para que tu pileta este siempre lista para usar.",
     etiqueta: "",
     imagen: "img/pileta-mto-1.jpg"
   },
   {
     nombre: "Puesta en marcha de temporada",
-    categoria: "servicios",
+    categoria: "pileta",
     descripcion: "Preparamos tu pileta para el verano: filtrado, cloro y equilibrio quimico completo.",
-    etiqueta: "",
+    etiqueta: "Mas pedido",
     imagen: "img/pileta-mto-2.jpg"
   },
   {
     nombre: "Reparacion de filtros y bombas",
-    categoria: "servicios",
+    categoria: "pileta",
     descripcion: "Diagnostico y reparacion de equipos de filtrado, bombas y luminarias de pileta.",
     etiqueta: "",
     imagen: "img/pileta-mto-3.jpg"
   },
   {
     nombre: "Analisis y tratamiento de agua",
-    categoria: "servicios",
+    categoria: "pileta",
     descripcion: "Control de pH, cloro y parametros del agua con tratamiento personalizado.",
     etiqueta: "",
     imagen: "img/pileta-mto-4.jpg"
   },
   {
     nombre: "Pintura de piletas",
-    categoria: "servicios",
+    categoria: "pileta",
     descripcion: "Reparacion de revoque y pintura especial para piletas. Renovamos tu pileta con materiales de calidad.",
     etiqueta: "",
     imagen: "img/pileta-mto-4.jpg"
   },
   {
     nombre: "Reparacion e instalacion de gas",
-    categoria: "servicios",
+    categoria: "pileta",
     descripcion: "Instalacion y reparacion de conexiones de garrafa con certificado y garantia.",
     etiqueta: "",
     imagen: "img/garrafa-10.jpg"

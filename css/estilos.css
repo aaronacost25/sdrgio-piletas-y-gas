@@ -421,6 +421,7 @@ em {
 .catalogo__grupo-titulo {
   grid-column: 1 / -1;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 0.55rem;
   font-size: 1rem;
@@ -442,11 +443,11 @@ em {
   background: var(--ambar);
 }
 
-.catalogo__grupo-titulo--servicios::before {
+.catalogo__grupo-titulo--pileta::before {
   background: var(--cian);
 }
 
-.catalogo__grupo-titulo--servicios {
+.catalogo__grupo-titulo--pileta {
   margin-top: 1rem;
 }
 
@@ -485,7 +486,7 @@ em {
   background: var(--ambar-suave);
 }
 
-.tarjeta[data-categoria="servicios"] .tarjeta__img {
+.tarjeta[data-categoria="pileta"] .tarjeta__img {
   background: var(--cian-suave);
 }
 
@@ -746,4 +747,4 @@ em {
   .seccion {
     padding: 3.5rem 0;
   }
-}
+} 

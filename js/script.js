@@ -2,6 +2,26 @@
 // 🖥️ LÓGICA DEL SITIO - no hace falta editarlo
 // ═══════════════════════════════════════════
 
+// ── Menú mobile (hamburguesa) ──
+const btnMenu = document.getElementById("btn-menu");
+const menuMovil = document.getElementById("menu-movil");
+
+if (btnMenu && menuMovil) {
+  btnMenu.addEventListener("click", () => {
+    const abierto = menuMovil.classList.toggle("header__nav--abierto");
+    btnMenu.classList.toggle("header__burger--abierto", abierto);
+    btnMenu.setAttribute("aria-expanded", String(abierto));
+  });
+
+  menuMovil.querySelectorAll("a").forEach((enlace) => {
+    enlace.addEventListener("click", () => {
+      menuMovil.classList.remove("header__nav--abierto");
+      btnMenu.classList.remove("header__burger--abierto");
+      btnMenu.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
 // ── Nombre del negocio (se define en index.html) ──
 const marca = document.querySelector(".brand");
 const nombreNegocio = marca ? marca.dataset.nombre : "Sergio Piletas y Gas";
@@ -14,7 +34,7 @@ const botonesFiltro = document.querySelectorAll(".filtro");
 
 const NOMBRE_GRUPO = {
   productos: "Gas en garrafa",
-  servicios: "Mantenimiento de piletas",
+  pileta: "Mantenimiento de piletas",
 };
 
 function imagenGeneral(articulo) {
@@ -55,9 +75,9 @@ function renderizar(filtro) {
 
   if (filtro === "todos") {
     const productos = articulos.filter((a) => a.categoria === "productos");
-    const servicios = articulos.filter((a) => a.categoria === "servicios");
+    const pileta = articulos.filter((a) => a.categoria === "pileta");
     contenedor.innerHTML =
-      grupoHTML("productos", productos) + grupoHTML("servicios", servicios);
+      grupoHTML("productos", productos) + grupoHTML("pileta", pileta);
   } else {
     contenedor.innerHTML = articulos.map(tarjetaHTML).join("");
   }
