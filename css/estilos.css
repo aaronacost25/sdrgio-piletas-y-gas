@@ -628,6 +628,215 @@ em {
   box-shadow: var(--sombra);
 }
 
+.galeria__titulo {
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--texto-suave);
+  margin-bottom: 1.2rem;
+}
+
+/* ─────────── ANTES Y DESPUÉS (comparador deslizante) ─────────── */
+
+/* Registra --pos como porcentaje para poder animarlo en la demo inicial */
+@property --pos {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 50%;
+}
+
+.antes-despues {
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+}
+
+.antes-despues__titulo {
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.antes-despues__ayuda {
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+  margin: 0.4rem 0 1.5rem;
+}
+
+.comparador__figura {
+  margin: 0;
+}
+
+.comparador__slider {
+  --pos: 50%;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  background: var(--cian-suave);
+  cursor: ew-resize;
+  touch-action: none; /* deja arrastrar con el dedo sin scrollear la página */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Demo: la barra se mueve sola una vez para enseñar cómo funciona */
+.comparador__slider--demo {
+  animation: comparador-barrido 1.8s ease-in-out 0.5s 1;
+}
+
+@keyframes comparador-barrido {
+  0%   { --pos: 50%; }
+  35%  { --pos: 78%; }
+  70%  { --pos: 28%; }
+  100% { --pos: 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .comparador__slider--demo {
+    animation: none;
+  }
+}
+
+.comparador__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* Foto del ANTES arriba, recortada hasta la posición de la barra */
+.comparador__img--antes {
+  z-index: 1;
+  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+}
+
+.comparador__etiqueta {
+  position: absolute;
+  top: 0.8rem;
+  z-index: 2;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  pointer-events: none;
+  box-shadow: var(--sombra);
+}
+
+.comparador__etiqueta--antes {
+  left: 0.8rem;
+  background: rgba(11, 31, 51, 0.85);
+  color: #fff;
+}
+
+.comparador__etiqueta--despues {
+  right: 0.8rem;
+  background: var(--cian);
+  color: var(--marino);
+}
+
+.comparador__linea {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  z-index: 2;
+  width: 3px;
+  transform: translateX(-50%);
+  background: #fff;
+  box-shadow: 0 0 8px rgba(11, 31, 51, 0.45);
+  pointer-events: none;
+}
+
+.comparador__manija {
+  position: absolute;
+  top: 50%;
+  left: var(--pos);
+  z-index: 3;
+  width: 46px;
+  height: 46px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 14px rgba(11, 31, 51, 0.35);
+  color: var(--marino);
+  cursor: ew-resize;
+}
+
+.comparador__manija:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.6);
+}
+
+.comparador__leyenda {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.93rem;
+  color: var(--texto-suave);
+}
+
+.comparador__leyenda strong {
+  color: var(--texto);
+  font-size: 1.05rem;
+}
+
+.comparador__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.3rem;
+}
+
+.comparador__flecha {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--borde);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: var(--marino);
+  box-shadow: var(--sombra);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.comparador__flecha:hover {
+  transform: translateY(-2px);
+  border-color: var(--cian);
+}
+
+.comparador__puntos {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.comparador__punto {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.comparador__punto--activo {
+  background: var(--cian);
+  transform: scale(1.3);
+}
+
 /* ─────────── FOOTER ─────────── */
 .footer {
   background: var(--marino);
@@ -767,6 +976,15 @@ em {
 
   .galeria {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .antes-despues {
+    margin-bottom: 2.6rem;
+  }
+
+  .comparador__manija {
+    width: 40px;
+    height: 40px;
   }
 
   .seccion {

@@ -130,3 +130,136 @@ itemsFaq.forEach((item) => {
 // ── Año del pie de página ──
 const anio = document.getElementById("footer-anio");
 if (anio) anio.textContent = new Date().getFullYear();
+
+// ── Antes y después (comparador deslizante) ──
+// Los datos se editan en js/antes-despues.js
+const contenedorComparador = document.getElementById("comparador");
+const navComparador = document.getElementById("comparador-nav");
+const trabajos = typeof ANTES_DESPUES !== "undefined" ? ANTES_DESPUES : [];
+
+if (contenedorComparador && trabajos.length) {
+  let indiceTrabajo = 0;
+
+  const ICONO_MANIJA = `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6 4 12l5 6"/><path d="m15 6 5 6-5 6"/></svg>`;
+  const ICONO_PREV = `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6 8 12l6 6"/></svg>`;
+  const ICONO_SIG = `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg>`;
+
+  function fijarPct(slider, manija, pct) {
+    pct = Math.min(100, Math.max(0, pct));
+    slider.style.setProperty("--pos", `${pct}%`);
+    manija.setAttribute("aria-valuenow", String(Math.round(pct)));
+  }
+
+  function fijarPosicion(slider, manija, clientX) {
+    const rect = slider.getBoundingClientRect();
+    fijarPct(slider, manija, ((clientX - rect.left) / rect.width) * 100);
+  }
+
+  function activarSlider(slider) {
+    const manija = slider.querySelector(".comparador__manija");
+    let arrastrando = false;
+
+    // Mouse y dedo (pointer events cubre ambos)
+    slider.addEventListener("pointerdown", (e) => {
+      arrastrando = true;
+      slider.classList.remove("comparador__slider--demo");
+      slider.setPointerCapture(e.pointerId);
+      fijarPosicion(slider, manija, e.clientX);
+    });
+    slider.addEventListener("pointermove", (e) => {
+      if (arrastrando) fijarPosicion(slider, manija, e.clientX);
+    });
+    const soltar = () => {
+      arrastrando = false;
+    };
+    slider.addEventListener("pointerup", soltar);
+    slider.addEventListener("pointercancel", soltar);
+
+    // Teclado (accesibilidad): flechas mueven la barra
+    manija.addEventListener("keydown", (e) => {
+      const paso = e.shiftKey ? 10 : 5;
+      const actual =
+        parseFloat(getComputedStyle(slider).getPropertyValue("--pos")) || 50;
+      let nueva;
+      if (e.key === "ArrowLeft") nueva = actual - paso;
+      else if (e.key === "ArrowRight") nueva = actual + paso;
+      else if (e.key === "Home") nueva = 0;
+      else if (e.key === "End") nueva = 100;
+      else return;
+      e.preventDefault();
+      slider.classList.remove("comparador__slider--demo");
+      fijarPct(slider, manija, nueva);
+    });
+  }
+
+  function trabajoHTML(t) {
+    return `
+      <figure class="comparador__figura">
+        <div class="comparador__slider comparador__slider--demo">
+          <img class="comparador__img" src="${t.despues}" alt="Después: ${t.titulo}" draggable="false">
+          <img class="comparador__img comparador__img--antes" src="${t.antes}" alt="Antes: ${t.titulo}" draggable="false">
+          <span class="comparador__etiqueta comparador__etiqueta--antes">Antes</span>
+          <span class="comparador__etiqueta comparador__etiqueta--despues">Después</span>
+          <div class="comparador__linea" aria-hidden="true"></div>
+          <div class="comparador__manija" role="slider" tabindex="0"
+               aria-label="Comparar antes y después: ${t.titulo}"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            ${ICONO_MANIJA}
+          </div>
+        </div>
+        <figcaption class="comparador__leyenda">
+          <strong>${t.titulo}</strong>
+          ${t.descripcion ? `<span>${t.descripcion}</span>` : ""}
+        </figcaption>
+      </figure>`;
+  }
+
+  function renderNav() {
+    if (!navComparador) return;
+    if (trabajos.length < 2) {
+      navComparador.hidden = true;
+      return;
+    }
+    navComparador.hidden = false;
+    navComparador.innerHTML = `
+      <button class="comparador__flecha" id="comp-prev" type="button" aria-label="Trabajo anterior">${ICONO_PREV}</button>
+      <div class="comparador__puntos">
+        ${trabajos
+          .map(
+            (_, i) =>
+              `<button class="comparador__punto${i === indiceTrabajo ? " comparador__punto--activo" : ""}" type="button" data-i="${i}" aria-label="Ver trabajo ${i + 1}"></button>`
+          )
+          .join("")}
+      </div>
+      <button class="comparador__flecha" id="comp-next" type="button" aria-label="Trabajo siguiente">${ICONO_SIG}</button>`;
+
+    navComparador
+      .querySelector("#comp-prev")
+      .addEventListener("click", () => {
+        indiceTrabajo = (indiceTrabajo - 1 + trabajos.length) % trabajos.length;
+        renderComparador();
+      });
+    navComparador
+      .querySelector("#comp-next")
+      .addEventListener("click", () => {
+        indiceTrabajo = (indiceTrabajo + 1) % trabajos.length;
+        renderComparador();
+      });
+    navComparador.querySelectorAll(".comparador__punto").forEach((punto) => {
+      punto.addEventListener("click", () => {
+        indiceTrabajo = Number(punto.dataset.i);
+        renderComparador();
+      });
+    });
+  }
+
+  function renderComparador() {
+    contenedorComparador.innerHTML = trabajoHTML(trabajos[indiceTrabajo]);
+    activarSlider(
+      contenedorComparador.querySelector(".comparador__slider")
+    );
+    renderNav();
+  }
+
+  renderComparador();
+}
