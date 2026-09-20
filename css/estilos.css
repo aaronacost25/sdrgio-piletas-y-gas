@@ -528,6 +528,31 @@ em {
   color: #fff;
 }
 
+.tarjeta__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+  background: var(--verde-whatsapp);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.tarjeta__cta .ico {
+  width: 14px;
+  height: 14px;
+}
+
+.tarjeta__cta:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
 .catalogo__vacio {
   grid-column: 1 / -1;
   text-align: center;
@@ -747,4 +772,4 @@ em {
   .seccion {
     padding: 3.5rem 0;
   }
-} 
+}
