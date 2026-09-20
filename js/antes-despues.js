@@ -17,8 +17,8 @@ const ANTES_DESPUES = [
     descripcion: "Limpieza, tratamiento químico y filtrado completo.",
     // 📸 Reemplazá por las fotos reales del cliente, por ejemplo:
     //    antes: "img/antes-1.jpg",  despues: "img/despues-1.jpg"
-    antes: "img/pileta-mto-3.jpg",
-    despues: "img/pileta-mto-4.jpg"
+    antes: "img/antes1.jpg",
+    despues: "img/despues1.jpg"
   }
 
   // Para agregar más trabajos, copiá el bloque de arriba y separalo
