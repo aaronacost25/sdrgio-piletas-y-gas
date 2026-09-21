@@ -44,14 +44,6 @@ const PRODUCTOS = [
     imagen: "img/garrafa-45.jpg",
     mensaje: "Hola! Quería consultar por una garrafa de gas de 45 kg."
   },
-  {
-    nombre: "Accesorios y repuestos",
-    categoria: "productos",
-    descripcion: "Picos, mangueras, reguladores y abrazaderas para tu instalacion de gas.",
-    etiqueta: "Nuevo",
-    imagen: "",
-    mensaje: "Hola! Quería consultar por accesorios y repuestos de gas."
-  },
 
   // ---------- SERVICIOS (MANTENIMIENTO DE PILETAS) ----------
   {
@@ -71,12 +63,13 @@ const PRODUCTOS = [
     mensaje: "Hola! Quería consultar por la puesta en marcha de mi pileta para esta temporada."
   },
   {
-    nombre: "Reparacion de filtros y bombas",
+    nombre: "Equipos Vulcano para tu pileta",
     categoria: "pileta",
-    descripcion: "Diagnostico y reparacion de equipos de filtrado, bombas y luminarias de pileta.",
-    etiqueta: "",
-    imagen: "img/pileta-mto-3.jpg",
-    mensaje: "Hola! Quería consultar por la reparación de filtros/bombas de mi pileta."
+    descripcion: "Venta de filtros, bombas y luminarias marca Vulcano. Te asesoramos para elegir el equipo ideal segun los metros de tu pileta.",
+    etiqueta: "Nuevo",
+    // 📸 Cuando el cliente mande foto de los equipos: img/equipo-vulcano.jpg
+    imagen: "",
+    mensaje: "Hola! Quería consultar por equipos Vulcano para mi pileta."
   },
   {
     nombre: "Analisis y tratamiento de agua",
@@ -93,13 +86,5 @@ const PRODUCTOS = [
     etiqueta: "",
     imagen: "img/pileta-mto-4.jpg",
     mensaje: "Hola! Quería consultar por la pintura de mi pileta."
-  },
-  {
-    nombre: "Reparacion e instalacion de gas",
-    categoria: "pileta",
-    descripcion: "Instalacion y reparacion de conexiones de garrafa con certificado y garantia.",
-    etiqueta: "",
-    imagen: "img/garrafa-10.jpg",
-    mensaje: "Hola! Quería consultar por reparación/instalación de gas."
   }
 ];
