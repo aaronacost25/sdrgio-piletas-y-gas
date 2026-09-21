@@ -620,10 +620,10 @@ em {
 .galeria__img {
   width: 100%;
   aspect-ratio: 4 / 3;
-  object-fit: contain;
-  background: var(--fondo-claro);
-  padding: 0.5rem;
+  object-fit: cover;
+  object-position: center;
   border-radius: var(--radio-tarjeta);
+  border: 1px solid var(--borde);
   display: block;
   box-shadow: var(--sombra);
 }

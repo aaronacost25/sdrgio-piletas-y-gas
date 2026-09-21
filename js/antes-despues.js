@@ -15,18 +15,25 @@ const ANTES_DESPUES = [
   {
     titulo: "Recuperación de agua",
     descripcion: "Limpieza, tratamiento químico y filtrado completo.",
-    // 📸 Reemplazá por las fotos reales del cliente, por ejemplo:
-    //    antes: "img/antes-1.jpg",  despues: "img/despues-1.jpg"
     antes: "img/antes1.jpg",
     despues: "img/despues1.jpg"
+  },
+  {
+    // 📸 Guardá las fotos en /img con estos nombres: antes2.jpg y despues2.jpg
+    titulo: "Pintura de pileta",
+    descripcion: "Reparación de revoque y pintura nueva: quedó como recién estrenada.",
+    antes: "img/antes2.jpg",
+    despues: "img/despues2.jpg"
+  },
+  {
+    // 📸 Guardá las fotos en /img con estos nombres: antes3.jpg y despues3.jpg
+    titulo: "Puesta en marcha",
+    descripcion: "Preparamos esta pileta para la temporada: filtrado, cloro y balance completo.",
+    antes: "img/antes3.jpg",
+    despues: "img/despues3.jpg"
   }
 
-  // Para agregar más trabajos, copiá el bloque de arriba y separalo
-  // con una coma. Aparecen flechas y puntitos para navegar entre ellos:
-  // {
-  //   titulo: "Pileta pintada de nuevo",
-  //   descripcion: "Revoque reparado y pintura especial.",
-  //   antes: "img/antes-2.jpg",
-  //   despues: "img/despues-2.jpg"
-  // }
+  // Para agregar más trabajos, copiá uno de los bloques de arriba,
+  // separalo con una coma y cambia los textos y las rutas de las fotos.
+  // Con más de un trabajo aparecen flechas y puntitos para navegar.
 ];

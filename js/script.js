@@ -135,9 +135,44 @@ if (anio) anio.textContent = new Date().getFullYear();
 // Los datos se editan en js/antes-despues.js
 const contenedorComparador = document.getElementById("comparador");
 const navComparador = document.getElementById("comparador-nav");
-const trabajos = typeof ANTES_DESPUES !== "undefined" ? ANTES_DESPUES : [];
+const trabajosCargados =
+  typeof ANTES_DESPUES !== "undefined" ? ANTES_DESPUES : [];
 
-if (contenedorComparador && trabajos.length) {
+// Solo se muestran los trabajos que ya tienen sus dos fotos:
+// así se puede publicar antes de tener todas las imágenes listas
+function fotoExiste(src) {
+  return new Promise((resolver) => {
+    if (!src) return resolver(false);
+    const img = new Image();
+    img.onload = () => resolver(true);
+    img.onerror = () => resolver(false);
+    img.src = src;
+  });
+}
+
+async function trabajosConFotos() {
+  const estados = await Promise.all(
+    trabajosCargados.map(async (t) => {
+      const [okAntes, okDespues] = await Promise.all([
+        fotoExiste(t.antes),
+        fotoExiste(t.despues),
+      ]);
+      return okAntes && okDespues;
+    })
+  );
+  return trabajosCargados.filter((_, i) => estados[i]);
+}
+
+trabajosConFotos().then((trabajos) => {
+  if (!contenedorComparador) return;
+
+  if (!trabajos.length) {
+    // Ningún trabajo tiene fotos todavía: ocultar el bloque completo
+    const bloque = contenedorComparador.closest(".antes-despues");
+    if (bloque) bloque.style.display = "none";
+    return;
+  }
+
   let indiceTrabajo = 0;
 
   const ICONO_MANIJA = `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6 4 12l5 6"/><path d="m15 6 5 6-5 6"/></svg>`;
@@ -262,4 +297,4 @@ if (contenedorComparador && trabajos.length) {
   }
 
   renderComparador();
-}
+});
