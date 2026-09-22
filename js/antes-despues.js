@@ -19,11 +19,10 @@ const ANTES_DESPUES = [
     despues: "img/despues1.jpg"
   },
   {
-    // 📸 Guardá las fotos en /img con estos nombres: antes2.jpg y despues2.jpg
     titulo: "Pintura de pileta",
     descripcion: "Reparación de revoque y pintura nueva: quedó como recién estrenada.",
-    antes: "img/antes2.jpg",
-    despues: "img/despues2.jpg"
+    antes: "img/pileta_depintada.jpg",
+    despues: "img/pileta_terminada2.jpg"
   },
   {
     // 📸 Guardá las fotos en /img con estos nombres: antes3.jpg y despues3.jpg
