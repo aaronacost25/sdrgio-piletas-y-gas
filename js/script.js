@@ -115,6 +115,53 @@ botonesFiltro.forEach((boton) => {
 
 renderizar("todos");
 
+// ── Botón "Compartir catálogo" ──
+const btnCompartir = document.getElementById("btn-compartir");
+const URL_CATALOGO = "https://sergio-piletas-y-gas.onrender.com/";
+const TEXTO_COMPARTIR =
+  "Mirá el catálogo de Sergio Piletas y Gas: piletas, gas en garrafa y productos Vulcano 🌊";
+
+function mostrarAviso(texto) {
+  const aviso = document.createElement("div");
+  aviso.className = "aviso";
+  aviso.textContent = texto;
+  document.body.appendChild(aviso);
+  requestAnimationFrame(() => aviso.classList.add("aviso--visible"));
+  setTimeout(() => {
+    aviso.classList.remove("aviso--visible");
+    setTimeout(() => aviso.remove(), 300);
+  }, 2600);
+}
+
+if (btnCompartir) {
+  btnCompartir.addEventListener("click", async () => {
+    // En celulares: abre la hoja de compartir nativa (WhatsApp, Instagram, etc.)
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Sergio Piletas y Gas — Catálogo digital",
+          text: TEXTO_COMPARTIR,
+          url: URL_CATALOGO,
+        });
+        return;
+      } catch (e) {
+        if (e.name === "AbortError") return; // la persona canceló
+      }
+    }
+
+    // En escritorio: copiar el link
+    try {
+      await navigator.clipboard.writeText(URL_CATALOGO);
+      mostrarAviso("📋 Link copiado. ¡Pegálo en WhatsApp o donde quieras!");
+    } catch (e) {
+      window.open(
+        `https://wa.me/?text=${encodeURIComponent(TEXTO_COMPARTIR + " " + URL_CATALOGO)}`,
+        "_blank"
+      );
+    }
+  });
+}
+
 // ── FAQ: cerrar una pregunta al abrir otra ──
 const itemsFaq = document.querySelectorAll(".faq__item");
 itemsFaq.forEach((item) => {
