@@ -67,7 +67,7 @@ const PRODUCTOS = [
     categoria: "pileta",
     descripcion: "Diagnostico y reparacion de bombas y filtros, incluyendo cambio de manija de multivalvulas.",
     etiqueta: "",
-    imagen: "img/pileta-mto-3.jpg",
+    imagen: "img/reparacion.jpg",
     mensaje: "Hola! Quería consultar por la reparación de una bomba/filtro de mi pileta."
   },
   {
@@ -75,8 +75,7 @@ const PRODUCTOS = [
     categoria: "pileta",
     descripcion: "Renovamos la arena de cuarzo de tu filtro para que vuelva a filtrar como el primer dia.",
     etiqueta: "",
-    // 📸 Si el cliente manda foto del filtro/cuarzo: img/cambio-cuarzo.jpg
-    imagen: "",
+    imagen: "img/cambio_cuarzo.jpg",
     mensaje: "Hola! Quería consultar por el cambio de cuarzo de mi filtro."
   },
   {
@@ -84,8 +83,7 @@ const PRODUCTOS = [
     categoria: "pileta",
     descripcion: "Venta de filtros, bombas y accesorios Vulcano. Te asesoramos para elegir el equipo ideal segun los metros de tu pileta.",
     etiqueta: "Nuevo",
-    // 📸 Cuando el cliente mande foto de los equipos: img/equipo-vulcano.jpg
-    imagen: "",
+    imagen: "img/kit.jpg",
     mensaje: "Hola! Quería consultar por productos Vulcano para mi pileta."
   },
   {
@@ -101,7 +99,7 @@ const PRODUCTOS = [
     categoria: "pileta",
     descripcion: "Reparacion de revoque y pintura especial para piletas. Renovamos tu pileta con materiales de calidad.",
     etiqueta: "",
-    imagen: "img/pileta-mto-4.jpg",
+    imagen: "img/pileta-mto-2.jpg",
     mensaje: "Hola! Quería consultar por la pintura de mi pileta."
   }
 ];
