@@ -999,6 +999,11 @@ em {
     height: 40px;
   }
 
+  /* Sube el boton flotante para que no tape el credito del footer */
+  .whatsapp-flotante {
+    bottom: 4.6rem;
+  }
+
   .seccion {
     padding: 3.5rem 0;
   }
