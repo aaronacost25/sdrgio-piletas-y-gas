@@ -168,136 +168,6 @@ em {
   transform: translateY(-1px);
 }
 
-/* ─────────── HERO ─────────── */
-.hero {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(600px 400px at 85% 10%, rgba(56, 189, 248, 0.18), transparent 60%),
-    radial-gradient(700px 500px at 10% 90%, rgba(18, 60, 92, 0.55), transparent 60%),
-    linear-gradient(160deg, var(--azul), var(--marino) 70%);
-  color: #fff;
-  padding: 6.5rem 0 7rem;
-  text-align: center;
-}
-
-.hero__decor {
-  position: absolute;
-  border-radius: 50%;
-  border: 2px solid rgba(56, 189, 248, 0.25);
-}
-
-.hero__decor--1 {
-  width: 340px;
-  height: 340px;
-  top: -120px;
-  left: -100px;
-}
-
-.hero__decor--2 {
-  width: 200px;
-  height: 200px;
-  bottom: -60px;
-  right: -40px;
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-.hero__contenido {
-  position: relative;
-  z-index: 1;
-  width: min(92%, 900px);
-  margin: 0 auto;
-}
-
-.hero__badge {
-  display: inline-block;
-  background: rgba(56, 189, 248, 0.15);
-  border: 1px solid rgba(56, 189, 248, 0.4);
-  color: #bae6fd;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  padding: 0.4rem 1.1rem;
-  border-radius: 999px;
-  margin-bottom: 1.6rem;
-}
-
-.hero__titulo {
-  font-size: clamp(2.2rem, 6vw, 4rem);
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -0.5px;
-  margin-bottom: 1.2rem;
-}
-
-.hero__titulo-agua,
-.hero__titulo-gas {
-  display: block;
-}
-
-.hero__titulo-agua {
-  color: #7dd3fc;
-}
-
-.hero__titulo-gas {
-  color: #fcd34d;
-}
-
-.hero__titulo-segunda {
-  display: block;
-  margin-top: 0.35rem;
-}
-
-.hero__sub {
-  font-size: clamp(1rem, 2.2vw, 1.15rem);
-  color: #cbd5e1;
-  max-width: 640px;
-  margin: 0 auto 2rem;
-}
-
-.hero__sub strong {
-  color: #fff;
-}
-
-.hero__acciones {
-  display: flex;
-  gap: 0.9rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.btn-primario,
-.btn-secundario {
-  display: inline-block;
-  font-weight: 700;
-  padding: 0.85rem 1.7rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 0.98rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn-primario {
-  background: var(--cian);
-  color: var(--marino);
-  box-shadow: 0 8px 22px rgba(56, 189, 248, 0.35);
-}
-
-.btn-primario:hover {
-  transform: translateY(-2px);
-}
-
-.btn-secundario {
-  background: transparent;
-  color: #fff;
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
-}
-
-.btn-secundario:hover {
-  border-color: #fff;
-  transform: translateY(-2px);
-}
-
 /* ─────────── SECCIONES ─────────── */
 .seccion {
   padding: 5rem 0;
@@ -305,6 +175,12 @@ em {
 
 .seccion--clara {
   background: var(--fondo-claro);
+}
+
+/* Primera seccion (Servicios): como ya no hay portada arriba,
+   lleva un poco menos de aire para que se vea enseguida */
+.seccion--primera {
+  padding-top: 3.2rem;
 }
 
 .titulo-seccion {
@@ -974,10 +850,6 @@ em {
     font-size: 0.85rem;
   }
 
-  .hero {
-    padding: 4.5rem 0 5rem;
-  }
-
   .solo-movil {
     display: inline;
   }
@@ -1006,5 +878,9 @@ em {
 
   .seccion {
     padding: 3.5rem 0;
+  }
+
+  .seccion--primera {
+    padding-top: 2.4rem;
   }
 }
